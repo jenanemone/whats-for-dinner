@@ -63,14 +63,18 @@ function displayData(drinkData, mealData) {
     document.querySelector('.mainMealImg').src = mealData.meals[0].strMealThumb;
     const leftParent = document.querySelector('.topLeft');
     const rightParent = document.querySelector('.topRight');
+    rightParent.style["justify-content"] = "space-evenly";
+    leftParent.style["justify-content"] = "space-evenly";
     const foodName = mealData.meals[0].strMeal;
     const foodNameElement = document.createElement('h2');
+    foodNameElement.style["font-size"] = "3 rem";
     foodNameElement.innerText = foodName;
     leftParent.appendChild(foodNameElement);
     document.querySelector('.topLeft').style['flex-direction'] = 'column';
 
     const drinkName = drinkData.drinks[0].strDrink;
     const drinkNameElement = document.createElement('h2');
+    drinkNameElement.style['font-size'] = "3 rem";
     drinkNameElement.innerText = drinkName;
     rightParent.appendChild(drinkNameElement);
     document.querySelector('.topRight').style['flex-direction'] = 'column';
@@ -102,28 +106,28 @@ function displayData(drinkData, mealData) {
         tempMe = mealData.meals[0][tempMeIngredientStr];
         tempMeasure2 = `strMeasure${i}`;
         tempMes2 = mealData.meals[0][tempMeasure2];
-        if (tempMs) {
+        if (tempMs && tempMs != ' ') {
             temp = `${tempMs} ${tempDr}`;
             drinkIngredients.push(temp);
             tempDrLI = document.createElement('li');
             tempDrLI.innerText = temp;
             drinkIngsUL.appendChild(tempDrLI);
         }
-        else if (tempDr && !tempMs) {
+        else if (tempDr && !tempMs && tempDr != ' ') {
             temp = `${tempDr}`;
             drinkIngredients.push(temp);
             tempDrLI = document.createElement('li');
             tempDrLI.innerText = temp;
             drinkIngsUL.appendChild(tempDrLI);
         }
-        if (tempMes2) {
+        if (tempMes2 && tempMes2 != ' ') {
             temp2 = `${tempMes2} ${tempMe}`
             mealIngredients.push(temp2);
             tempMeLI = document.createElement('li');
             tempMeLI.innerText = temp2;
             mealIngsUL.appendChild(tempMeLI);
         }
-        else if (tempMe && !tempMes2) {
+        else if (tempMe && !tempMes2 && tempMe != ' ') {
             temp2 = `${tempMe}`;
             mealIngredients.push(temp2);
             tempMeLI = document.createElement('li');
