@@ -136,9 +136,27 @@ function displayData(drinkData, mealData) {
         }
 
     }
+    const allDrinkInstructions = drinkData.drinks[0].strInstructions.split('. ');
+    const allMealInstructions = mealData.meals[0].strInstructions.split('. ');
+    if (drinkData.drinks[0].strInstructions) {
+        for (let i = 0; i < allDrinkInstructions.length; i++) {
+            let child = document.createElement('li');
+            let mom = document.querySelector('.drinkIngredientSet');
+            child.innerText = allDrinkInstructions[i];
+            mom.appendChild(child);
+        }
+    }
+    if (mealData.meals[0].strInstructions) {
+        for (let i = 0; allMealInstructions.length; i++) {
+            let child = document.createElement('li');
+            let mom = document.querySelector('.mealIngredienSet');
+            child.innerText = allMealInstructions[i];
+            mom.appendChild(child);
+        }
+    }
     console.log(mealIngredients);
     console.log(drinkIngredients);
-    
+
 }
 
 function timer(ms) {

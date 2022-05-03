@@ -36,12 +36,12 @@
   .topLeft, .topRight {
     border-bottom: 3px solid teal;
   }
-  .middle, .middleTitles {
+  .middle {
       width: 100%;
       display: flex;
       flex-direction: row;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start;
   }
 
   .topLeft, .topCenter,.topRight {
@@ -80,17 +80,17 @@
   }
   .middleCenter {
     height: 100%;
-    width: 40%;
+    width: 60%;
     display: flex; 
-    justify-content: center;
+    justify-content: flex-start;
   }
   .middleCenter img {
     width: 50%;
     padding: 2%;
+
     /* height:fit-content; */
   }
-  .drinkListedIngredients, .drinkInstructionsShow,
-  .mealListedIngredients, .mealInstructionsShow {
+  .drinkListedIngredients, .drinkInstructionsShow {
       height: auto;
       align-items: flex-start;
       width: 100%;
@@ -99,6 +99,9 @@
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
+  }
+  .mealListedIngredients, .mealInstructionsShow {
+    width: 50%;
   }
   ul {
     font-size: 1.8rem;
@@ -116,23 +119,22 @@
     align-items: center;
     width: 100%;
   }
-  .middleLeft, .middleRight {
-      width: 25%;
-  }
 
   .middleLeft, .middleRight {
       display: flex;
       flex-direction: column;
-      justify-content: flex-start;
+      align-items: flex-start;
+      overflow: hidden;
+      max-height: 50%;
   }
   .buttonHole, .inputHole {
     padding: .4rem;
   }
-  .middleCenter {
+  /* .middleCenter {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
+  } */
   button {
     background:teal;
     color:rgb(251, 226, 226);
@@ -176,6 +178,10 @@
   }
   div {
     height: 2px;
+  }
+  .mealListedIngredients,
+  .drinkListedIngredients {
+    justify-content: flex-start;
   }
   /******************************************
   /* ADDITIONAL STYLES
