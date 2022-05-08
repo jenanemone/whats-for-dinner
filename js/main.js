@@ -85,55 +85,34 @@ function displayData(drinkData, mealData) {
 
     let mealIngredients = [];
     let drinkIngredients = [];
-    let tempDrIngredientStr = '';
-    let tempMeIngredientStr = '';
-    let tempDr = '';
-    let tempMe = '';
-    let tempMeasure = '';
-    let tempMs = '';
-    let temp = '';
-    let tempMeasure2 = '';
-    let tempMes2 = '';
-    let temp2 = '';
-    let tempMeLI;
-    let tempDrLI;
+    let tempLI;
+    let tempLI2;
+
     for (let i = 1; i <= 20; i++) {
-        tempDrIngredientStr = `strIngredient${i}`;
-        tempDr = drinkData.drinks[0][tempDrIngredientStr];
-        tempMeasure = `strMeasure${i}`;
-        tempMs = drinkData.drinks[0][tempMeasure];
-        tempMeIngredientStr = `strIngredient${i}`;
-        tempMe = mealData.meals[0][tempMeIngredientStr];
-        tempMeasure2 = `strMeasure${i}`;
-        tempMes2 = mealData.meals[0][tempMeasure2];
-        if (tempMs && tempMs != ' ') {
-            temp = `${tempMs} ${tempDr}`;
-            drinkIngredients.push(temp);
-            tempDrLI = document.createElement('li');
-            tempDrLI.innerText = temp;
-            drinkIngsUL.appendChild(tempDrLI);
+        let drinkIngredient = drinkData.drinks[0][`strIngredient${i}`];
+        let drinkMeasure = drinkData.drinks[0][`strMeasure${i}`];
+        let mealIngredient = mealData.meals[0][`strIngredient${i}`];
+        let mealMeasure = mealData.meals[0][`strMeasure${i}`];
+        if (drinkIngredient && drinkMeasure) {
+            tempLI = document.createElement('li');
+            tempLI.innerText = `${drinkIngredient} ${drinkMeasure}`;
+            drinkIngsUL.appendChild(tempLI);
         }
-        else if (tempDr && !tempMs && tempDr != ' ') {
-            temp = `${tempDr}`;
-            drinkIngredients.push(temp);
-            tempDrLI = document.createElement('li');
-            tempDrLI.innerText = temp;
-            drinkIngsUL.appendChild(tempDrLI);
+        else if (drinkIngredient && !drinkMeasure) {
+            tempLI = document.createElement('li');
+            tempLI.innerText = `${drinkIngredient}`;
+            drinkIngsUL.appendChild(tempLI);
         }
-        if (tempMes2 && tempMes2 != ' ') {
-            temp2 = `${tempMes2} ${tempMe}`
-            mealIngredients.push(temp2);
-            tempMeLI = document.createElement('li');
-            tempMeLI.innerText = temp2;
-            mealIngsUL.appendChild(tempMeLI);
+        if (mealIngredient && mealMeasure) {
+            tempLI2 = document.createElement('li');
+            tempLI2.innerText = `${mealIngredient} ${mealMeasure}`;
+            mealIngsUL.appendChild(tempLI2);
         }
-        else if (tempMe && !tempMes2 && tempMe != ' ') {
-            temp2 = `${tempMe}`;
-            mealIngredients.push(temp2);
-            tempMeLI = document.createElement('li');
-            tempMeLI.innerText = temp2;
-            mealIngsUL.appendChild(tempMeLI);
-        }
+        else if (mealIngredient && !mealMeasure) {
+            tempLI2 = document.createElement('li');
+            tempLI2.innerText = `${mealIngredient}`;
+            mealIngsUL.appendChild(tempLI2);
+        } 
 
     }
     const allDrinkInstructions = drinkData.drinks[0].strInstructions.split('. ');
@@ -141,7 +120,7 @@ function displayData(drinkData, mealData) {
     if (drinkData.drinks[0].strInstructions) {
         for (let i = 0; i < allDrinkInstructions.length; i++) {
             let child = document.createElement('li');
-            let mom = document.querySelector('.drinkIngredientSet');
+            let mom = document.querySelector('.drinkInstructionSet');
             child.innerText = allDrinkInstructions[i];
             mom.appendChild(child);
         }
@@ -149,7 +128,7 @@ function displayData(drinkData, mealData) {
     if (mealData.meals[0].strInstructions) {
         for (let i = 0; allMealInstructions.length; i++) {
             let child = document.createElement('li');
-            let mom = document.querySelector('.mealIngredienSet');
+            let mom = document.querySelector('.mealInstructionSet');
             child.innerText = allMealInstructions[i];
             mom.appendChild(child);
         }
