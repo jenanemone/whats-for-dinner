@@ -4,195 +4,245 @@
 /*******************************************/
 
 /* Box Model Hack */
-*{
-    box-sizing: border-box;
-  }
-  
-  /******************************************
+* {
+  box-sizing: border-box;
+}
+
+/******************************************
   /* LAYOUT
   /*******************************************/
-  html {
-    font-size: 62.5%;
-  }
-  
-  body {
-    /*font-family: 'Diplomata',Verdana, Geneva, Tahoma, sans-serif; */
-    font-family: 'Trochut',Arial, Helvetica, sans-serif;
-    display: flex;
-    flex-direction: column;
-    /* justify-content: center;
+html {
+  font-size: 62.5%;
+}
+
+body {
+  /*font-family: 'Diplomata',Verdana, Geneva, Tahoma, sans-serif; */
+  font-family: 'Trochut', Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center;
     align-items: center; */
-    background: rgb(53, 46, 46);
-    color: rgb(251, 226, 226);
-    height: 100%;
-  }
-  .top {
-      height: auto;
-      width: 100%;
-      display: flex;
-      flex-direction: row;
-      
-  }
-  .topLeft, .topRight {
-    border-bottom: 3px solid teal;
-  }
-  .middle {
-      width: 100%;
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: flex-start;
-  }
+  background: rgb(53, 46, 46);
+  color: rgb(251, 226, 226);
+  height: 100%;
+}
 
-  .topLeft, .topCenter,.topRight {
-      width: 33.3333%;
-      display: flex;
-  }
-  .topLeft,.topRight {
-      justify-content: center;
-      align-items: center;
-  }
-  .left, .right, .center {
-    width: 33.3333%;
-    /* border: 1px solid red; */
-  }
-  section {
-     /*border: 1px dashed teal;  */
-  }
-  h1 {
-    font-size: 3.2rem;
-    padding: 2%;
-    margin: 0;
-  }
-  h2 {
-    padding: 5%;
-    font-size: 2.6rem;
-    margin: 0;
-  }
-  img{
-    /* display: block;
-    margin: 0 auto; */
-    /* width: 200px; */
-  }
-  .fa-solid {
-    padding: .2rem;
-    font-size: 5rem;
-  }
-  .middleCenter {
-    height: 100%;
-    width: 60%;
-    display: flex; 
-    justify-content: flex-start;
-  }
-  .middleCenter img {
-    width: 50%;
-    padding: 2%;
+.top {
+  height: auto;
+  padding: 2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
 
-    /* height:fit-content; */
-  }
-  .drinkListedIngredients, .drinkInstructionsShow {
-      height: auto;
-      align-items: flex-start;
-      width: 100%;
-      height: 100%;
-      font-size: 2rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-  }
-  .mealListedIngredients, .mealInstructionsShow {
-    width: 50%;
-  }
-  ul {
-    font-size: 1.8rem;
-  }
- 
-  input {
-    height: 3rem;
-    width: 150px;
-    outline: 0;
-    font-size: 2rem;
-  }
-  .userInput {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-  }
+}
 
-  .middleLeft, .middleRight {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      overflow: hidden;
-      max-height: 50%;
-  }
-  .buttonHole, .inputHole {
-    padding: .4rem;
-  }
-  /* .middleCenter {
+.topLeft,
+.topRight {
+  border-bottom: .5rem solid teal;
+}
+
+.middle {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.topLeft,
+.topCenter,
+.topRight {
+  display: flex;
+}
+.topCenter {
+  width: 50%;
+}
+.topLeft,
+.topRight {
+  justify-content: center;
+  align-items: center;
+  width: 25%;
+}
+.fa-utensils {
+  transform: rotate(-30deg);
+}
+.fa-martini-glass {
+  transform: rotate(30deg);
+}
+
+section {
+  /*border: 1px dashed teal;  */
+}
+
+h1 {
+  font-size: 5.2rem;
+  padding: 2%;
+  margin: 0;
+}
+
+h2 {
+  font-size: 2.2rem;
+}
+
+
+img {
+   border-radius: 2rem;
+}
+
+.fa-solid {
+  padding: .2rem;
+  font-size: 5rem;
+}
+
+.middleCenter {
+  height: 100%;
+  width: 60%;
+  display: flex;
+  justify-content: flex-start;
+}
+.directions {
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.directions h2 {
+  text-align: center;
+  height: 100%;
+}
+.middleCenter img {
+  width: 50%;
+  padding: 2%;
+
+  /* height:fit-content; */
+}
+
+.drinkListedIngredients,
+.mealListedIngredients,
+.drinkInstructionsShow {
+  height: auto;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+
+ul {
+  font-size: 1.8rem;
+  font-family: "Advent Pro";
+}
+
+inputs {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+input {
+  background:rgb(251, 226, 226);
+  height: 3rem;
+  width: 150px;
+  outline: 0;
+  font-size: 2rem;
+}
+
+.userInput {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.middleLeft,
+.middleRight {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  overflow: hidden;
+  max-height: 50%;
+}
+
+.buttonHole,
+.inputHole {
+  padding: 2.4rem;
+}
+
+/* .middleCenter {
     display: flex;
     justify-content: center;
     align-items: center;
   } */
-  button {
-    background:teal;
-    color:rgb(251, 226, 226);
-    font-size: 2rem;
-    padding: .2rem;
-    width: 150px;
-  }
-  .randomButton {
-    font-weight: 400;
-    font-style: italic;
-  }
-  .bottom {
-    padding-top: 4%;
-    /* border-top: 2px teal solid ; */
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: space-evenly;
-    align-items: flex-start;
-  }
-  .bottomSuggestion {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 3%;
-  }
-  section h2 {
-    text-align: center;
-  }
-  .bottom img {
-    width: 200px;
-    height: fit-content;
-    /* border: 1px solid teal; */
-  }
-  .suggestionBox {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  div {
-    height: 2px;
-  }
-  .mealListedIngredients,
-  .drinkListedIngredients {
-    justify-content: flex-start;
-  }
-  /******************************************
+button {
+  background: teal;
+  color: rgb(251, 226, 226);
+  font-size: 2rem;
+  padding: .2rem;
+  width: 150px;
+}
+
+.randomButton {
+  font-weight: 400;
+  font-style: italic;
+}
+
+.bottom {
+  padding-top: 4%;
+  /* border-top: 2px teal solid ; */
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+
+.bottomSuggestion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 3%;
+}
+
+section h2 {
+  text-align: center;
+}
+
+.bottom img {
+  width: 200px;
+  height: fit-content;
+  /* border: 1px solid teal; */
+}
+
+.suggestionBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+/*
+div {
+  height: 2px;
+}
+*/
+.mealListedIngredients,
+.drinkListedIngredients {
+  justify-content: flex-start;
+}
+
+/******************************************
   /* ADDITIONAL STYLES
   /*******************************************/
-  @media all and (max-width: 954px) {
-    .inputs {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .top {
-      margin: auto;
-    }
+@media all and (max-width: 954px) {
+  .inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
+
+  .top {
+    margin: auto;
+  }
+}

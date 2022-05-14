@@ -14,6 +14,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Diplomata&family=Trochut:ital@0;1&display=swap"
         rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Advent+Pro:wght@300;400&family=Diplomata&family=Trochut:ital@0;1&family=Zen+Loop&display=swap"
+        rel="stylesheet">
     <script src="https://kit.fontawesome.com/29e61423df.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css">
 
@@ -28,15 +31,14 @@
         <section class="topCenter">
             <section class="userInput">
                 <h1>What's for Dinner?</h1>
-                <h2>Search by ingredients or get a random suggestion</h2>
+                <span class="buttonHole">
+                    <button type="button" name="searchButton" id="srchBtn">Eat / Drink</button></span>
                 <section class="inputs">
                     <span class="inputHole">
                         <input type="text" name="" value="" class="eatInput" placeholder="enter a food"></span>
                     <span class="inputHole">
                         <input type="text" name="" value="" class="drinkInput" placeholder="enter a drink"></span>
                 </section>
-                <span class="buttonHole">
-                    <button type="button" name="searchButton" id="srchBtn">Eat / Drink</button></span>
             </section>
         </section>
         <section class="topRight">
@@ -44,10 +46,12 @@
         </section>
     </section>
 
-
+    <span class="directions">
+        <h2>Search by ingredients or get a random suggestion</h2>
+    </span>
     <section class="middle">
+
         <section class="middleLeft">
-            <!-- <h2 class="mealName"></h2> -->
             <section class="mealListedIngredients">
                 <ul class="mealIngredientSet">
 
@@ -60,13 +64,12 @@
             </section>
 
         </section>
+
         <section class="middleCenter">
             <img src="" alt="" class="mainMealImg">
             <img class="mainDrinkImg" src="" alt="">
         </section>
         <section class="middleRight">
-
-            <!-- <h2 class="drinkName"></h2> -->
             <section class="drinkListedIngredients">
                 <ul class="drinkIngredientSet">
 

@@ -67,17 +67,21 @@ function displayData(drinkData, mealData) {
     leftParent.style["justify-content"] = "space-evenly";
     const foodName = mealData.meals[0].strMeal;
     const foodNameElement = document.createElement('h2');
-    foodNameElement.style["font-size"] = "3 rem";
+    foodNameElement.style["font-size"] = "3rem";
     foodNameElement.innerText = foodName;
+    foodNameElement.style['font-family'] = "Advent Pro";
     leftParent.appendChild(foodNameElement);
     document.querySelector('.topLeft').style['flex-direction'] = 'column';
 
     const drinkName = drinkData.drinks[0].strDrink;
     const drinkNameElement = document.createElement('h2');
-    drinkNameElement.style['font-size'] = "3 rem";
+    drinkNameElement.style['font-size'] = "3rem";
+    drinkNameElement.style['font-family'] = "Advent Pro"
+    document.querySelector('.fa-utensils').style.transform = "rotate(0deg)";
     drinkNameElement.innerText = drinkName;
     rightParent.appendChild(drinkNameElement);
     document.querySelector('.topRight').style['flex-direction'] = 'column';
+    document.querySelector('.fa-martini-glass').style.transform = "rotate(0deg)";
 
 
     const mealIngsUL = document.querySelector('.mealIngredientSet');
@@ -112,27 +116,47 @@ function displayData(drinkData, mealData) {
             tempLI2 = document.createElement('li');
             tempLI2.innerText = `${mealIngredient}`;
             mealIngsUL.appendChild(tempLI2);
-        } 
+        }
 
     }
+
     const allDrinkInstructions = drinkData.drinks[0].strInstructions.split('. ');
     const allMealInstructions = mealData.meals[0].strInstructions.split('. ');
-    if (drinkData.drinks[0].strInstructions) {
-        for (let i = 0; i < allDrinkInstructions.length; i++) {
-            let child = document.createElement('li');
-            let mom = document.querySelector('.drinkInstructionSet');
-            child.innerText = allDrinkInstructions[i];
-            mom.appendChild(child);
-        }
+    if (allDrinkInstructions || allMealInstructions) {
+        const newSectionContents = `
+        <section>
+            <h3>Instructions</h3>
+            <div class="drinkInstructions">
+                <p>${allDrinkInstructions}</p>
+            </div>
+            <div class="mealInstructions">
+                <p>${allMealInstructions}</p>
+            </div>
+        </section>
+        `
+        const newSection = document.createElement('section');
+        newSection.style['font-family'] = "Advent Pro"
+        newSection.style['font-size'] = "1.8rem";
+        newSection.innerHTML = newSectionContents;
+        document.body.appendChild(newSection);
     }
-    if (mealData.meals[0].strInstructions) {
-        for (let i = 0; allMealInstructions.length; i++) {
-            let child = document.createElement('li');
-            let mom = document.querySelector('.mealInstructionSet');
-            child.innerText = allMealInstructions[i];
-            mom.appendChild(child);
-        }
-    }
+   
+    // if (drinkData.drinks[0].strInstructions) {
+    //     for (let i = 0; i < allDrinkInstructions.length; i++) {
+    //         let child = document.createElement('li');
+    //         let mom = document.querySelector('.drinkInstructionSet');
+    //         child.innerText = allDrinkInstructions[i];
+    //         mom.appendChild(child);
+    //     }
+    // }
+    // if (mealData.meals[0].strInstructions) {
+    //     for (let i = 0; allMealInstructions.length; i++) {
+    //         let child = document.createElement('li');
+    //         let mom = document.querySelector('.mealInstructionSet');
+    //         child.innerText = allMealInstructions[i];
+    //         mom.appendChild(child);
+    //     }
+    // }
     console.log(mealIngredients);
     console.log(drinkIngredients);
 
