@@ -17,7 +17,7 @@ html {
 
 body {
   /*font-family: 'Diplomata',Verdana, Geneva, Tahoma, sans-serif; */
-  font-family: 'Trochut', Arial, Helvetica, sans-serif;
+  font-family: 'Advent Pro', Arial, Helvetica, sans-serif;
   display: flex;
   flex-direction: column;
   /* justify-content: center;
@@ -70,23 +70,21 @@ body {
   transform: rotate(30deg);
 }
 
-section {
-  /*border: 1px dashed teal;  */
-}
-
 h1 {
+  font-family: "Trochut",Arial, Helvetica, sans-serif;
   font-size: 5.2rem;
   padding: 2%;
   margin: 0;
 }
 
 h2 {
-  font-size: 2.2rem;
+  font-size: 4rem;
+  font-family: "Zen Loop",Arial, Helvetica, sans-serif;
 }
 
 
 img {
-   border-radius: 2rem;
+   border-radius: 5rem;
 }
 
 .fa-solid {
@@ -104,22 +102,22 @@ img {
   height: 3rem;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 .directions h2 {
   text-align: center;
   height: 100%;
 }
+h3 {
+  font-size: 1.4rem;
+}
 .middleCenter img {
   width: 50%;
   padding: 2%;
-
-  /* height:fit-content; */
 }
 
 .drinkListedIngredients,
-.mealListedIngredients,
-.drinkInstructionsShow {
+.mealListedIngredients {
   height: auto;
   align-items: flex-start;
   width: 100%;
@@ -128,14 +126,23 @@ img {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+ 
 }
 
+.notepaper {
+  background-image: repeating-linear-gradient(rgb(217, 220, 221) 0px, rgb(217, 220, 221) 24px, teal 25px);
+}
 
 ul {
+  padding-top: 4%;
   font-size: 1.8rem;
   font-family: "Advent Pro";
+  min-height: 250px;
+  color: teal;
 }
-
+li {
+  padding: 2% 4% 1% 2%;
+}
 inputs {
   display: flex;
   justify-content: space-evenly;
@@ -170,13 +177,9 @@ input {
   padding: 2.4rem;
 }
 
-/* .middleCenter {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  } */
 button {
   background: teal;
+  font-weight: bold;
   color: rgb(251, 226, 226);
   font-size: 2rem;
   padding: .2rem;
@@ -215,7 +218,19 @@ section h2 {
   height: fit-content;
   /* border: 1px solid teal; */
 }
-
+.instructions {
+  display: flex;
+}
+.mealInstructionsShow,
+.drinkInstructionsShow {
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+}
+.mealInstructionSet,
+.drinkInstructionSet {
+  color: rgb(217, 220, 221);
+}
 .suggestionBox {
   display: flex;
   flex-direction: column;
@@ -223,15 +238,6 @@ section h2 {
   justify-content: center;
 }
 /*
-div {
-  height: 2px;
-}
-*/
-.mealListedIngredients,
-.drinkListedIngredients {
-  justify-content: flex-start;
-}
-
 /******************************************
   /* ADDITIONAL STYLES
   /*******************************************/
@@ -244,5 +250,11 @@ div {
 
   .top {
     margin: auto;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  body {
+    background: hsla(0,7.1%,19.4%,1);
+    color: hsla(0,75.8%,93.5%,1);
   }
 }

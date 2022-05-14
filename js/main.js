@@ -57,6 +57,11 @@ function getDrink(drinkUrl) {
 }
 
 function displayData(drinkData, mealData) {
+    // if (document.querySelector('li')) {
+    //     foodName.innerText = '';
+    //     drinkName.innerText = '';
+    //     document.querySelector('.mealInstructionSet').removeChild('li');
+    // }
     console.log('inside displayData() with: ');
     console.log(drinkData, mealData);
     document.querySelector('.mainDrinkImg').src = drinkData.drinks[0].strDrinkThumb;
@@ -67,16 +72,12 @@ function displayData(drinkData, mealData) {
     leftParent.style["justify-content"] = "space-evenly";
     const foodName = mealData.meals[0].strMeal;
     const foodNameElement = document.createElement('h2');
-    foodNameElement.style["font-size"] = "3rem";
     foodNameElement.innerText = foodName;
-    foodNameElement.style['font-family'] = "Advent Pro";
     leftParent.appendChild(foodNameElement);
     document.querySelector('.topLeft').style['flex-direction'] = 'column';
 
     const drinkName = drinkData.drinks[0].strDrink;
     const drinkNameElement = document.createElement('h2');
-    drinkNameElement.style['font-size'] = "3rem";
-    drinkNameElement.style['font-family'] = "Advent Pro"
     document.querySelector('.fa-utensils').style.transform = "rotate(0deg)";
     drinkNameElement.innerText = drinkName;
     rightParent.appendChild(drinkNameElement);
@@ -85,7 +86,9 @@ function displayData(drinkData, mealData) {
 
 
     const mealIngsUL = document.querySelector('.mealIngredientSet');
+    mealIngsUL.classList.add("notepaper");
     const drinkIngsUL = document.querySelector('.drinkIngredientSet');
+    drinkIngsUL.classList.add("notepaper");
 
     let mealIngredients = [];
     let drinkIngredients = [];
@@ -122,41 +125,27 @@ function displayData(drinkData, mealData) {
 
     const allDrinkInstructions = drinkData.drinks[0].strInstructions.split('. ');
     const allMealInstructions = mealData.meals[0].strInstructions.split('. ');
-    if (allDrinkInstructions || allMealInstructions) {
-        const newSectionContents = `
-        <section>
-            <h3>Instructions</h3>
-            <div class="drinkInstructions">
-                <p>${allDrinkInstructions}</p>
-            </div>
-            <div class="mealInstructions">
-                <p>${allMealInstructions}</p>
-            </div>
-        </section>
-        `
-        const newSection = document.createElement('section');
-        newSection.style['font-family'] = "Advent Pro"
-        newSection.style['font-size'] = "1.8rem";
-        newSection.innerHTML = newSectionContents;
-        document.body.appendChild(newSection);
-    }
+    console.log(allDrinkInstructions);
+    console.log(allMealInstructions);
    
-    // if (drinkData.drinks[0].strInstructions) {
-    //     for (let i = 0; i < allDrinkInstructions.length; i++) {
-    //         let child = document.createElement('li');
-    //         let mom = document.querySelector('.drinkInstructionSet');
-    //         child.innerText = allDrinkInstructions[i];
-    //         mom.appendChild(child);
-    //     }
-    // }
-    // if (mealData.meals[0].strInstructions) {
-    //     for (let i = 0; allMealInstructions.length; i++) {
-    //         let child = document.createElement('li');
-    //         let mom = document.querySelector('.mealInstructionSet');
-    //         child.innerText = allMealInstructions[i];
-    //         mom.appendChild(child);
-    //     }
-    // }
+    const drinkInstrUL = document.querySelector('.drinkInstructionSet');
+    const mealInstrUL = document.querySelector('.mealInstructionSet');
+    if (allDrinkInstructions) {
+        for (let i = 0; i < allDrinkInstructions.length; i++) {
+            console.log(allDrinkInstructions[i])
+            tempLI = document.createElement('li');
+            tempLI.innerText = `${allDrinkInstructions[i]}`;
+            drinkInstrUL.appendChild(tempLI);
+        }
+    }
+    if (allMealInstructions) {
+        for (let i = 0; i < allMealInstructions.length; i++) {
+            console.log(allMealInstructions[i])
+            let tempLI2 = document.createElement('li');
+            tempLI2.innerText = allMealInstructions[i];
+            mealInstrUL.appendChild(tempLI2);
+        }   
+    }
     console.log(mealIngredients);
     console.log(drinkIngredients);
 
