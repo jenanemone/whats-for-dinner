@@ -86,6 +86,13 @@ function displayData(drinkData, mealData) {
 
 
     const mealIngsUL = document.querySelector('.mealIngredientSet');
+    const ingredientHeaders = document.querySelectorAll('.header')
+    ingredientHeaders.forEach(elem => {
+        elem.innerText = "Ingredients";
+        elem.classList.add("headerStyling");
+        elem.classList.add("headerStyling::before");
+        elem.classList.add("headerStyling::after");
+    });
     mealIngsUL.classList.add("notepaper");
     const drinkIngsUL = document.querySelector('.drinkIngredientSet');
     drinkIngsUL.classList.add("notepaper");
