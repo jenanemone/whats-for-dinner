@@ -9,19 +9,16 @@
 }
 
 /******************************************
-  /* LAYOUT
-  /*******************************************/
+/* LAYOUT
+/*******************************************/
 html {
   font-size: 62.5%;
 }
 
 body {
-  /*font-family: 'Diplomata',Verdana, Geneva, Tahoma, sans-serif; */
   font-family: 'Advent Pro', Arial, Helvetica, sans-serif;
   display: flex;
   flex-direction: column;
-  /* justify-content: center;
-    align-items: center; */
   background: rgb(53, 46, 46);
   color: rgb(251, 226, 226);
   height: 100%;
@@ -29,7 +26,7 @@ body {
 
 .top {
   height: auto;
-  padding: 2rem;
+  padding: 2rem 2rem 0 2rem;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -47,8 +44,8 @@ body {
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
-  margin-left: 1rem;
-  margin-right: 1rem;
+  margin-left: 3rem;
+  margin-right: 3rem;
 }
 
 .topLeft,
@@ -112,6 +109,8 @@ img {
 }
 h3 {
   font-size: 1.4rem;
+  line-height: 1rem;
+  margin: 0;
 }
 .middleCenter img {
   width: 50%;
@@ -167,7 +166,7 @@ ul {
 li {
   padding: 2% 4% 1% 2%;
 }
-inputs {
+.inputs {
   display: flex;
   justify-content: space-evenly;
 }
@@ -275,6 +274,8 @@ section h2 {
 
   .top {
     margin: auto;
+    margin-bottom: 0;
+    padding-bottom: 0;
   }
 }
 @media (prefers-color-scheme: dark) {

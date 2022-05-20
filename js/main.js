@@ -8,7 +8,27 @@ let drinkData;
 let drink;
 let meal;
 
+let hasFoodRecentSearchChanges = false;
+let hasDrinkRecentSearchChanges = false;
+
+document.querySelector(".eatInput").addEventListener('click', () => {
+    if (!hasFoodRecentSearchChanges) {
+        document.querySelector("input.eatInput").value = "";
+    }
+    hasFoodRecentSearchChanges = true});
+
+document.querySelector(".drinkInput").addEventListener('click', () => {
+    if (!hasDrinkRecentSearchChanges) {
+        document.querySelector("input.drinkInput").value = "";
+    }
+    hasDrinkRecentSearchChanges = true});
+
 async function getBoth() {
+    if (document.querySelector('li') || document.querySelector('h2')) {
+        clear()
+    }
+    hasFoodRecentSearchChanges = false;
+    hasDrinkRecentSearchChanges = false;
 
     drink = document.querySelector('.drinkInput').value;
     if (drink) {
@@ -27,6 +47,7 @@ async function getBoth() {
     drinkData = await getDrink(drinkUrl);
     mealData = await getMeal(mealUrl);
     displayData(drinkData, mealData);
+
 }
 
 function getMeal(mealUrl) {
@@ -57,11 +78,7 @@ function getDrink(drinkUrl) {
 }
 
 function displayData(drinkData, mealData) {
-    // if (document.querySelector('li')) {
-    //     foodName.innerText = '';
-    //     drinkName.innerText = '';
-    //     document.querySelector('.mealInstructionSet').removeChild('li');
-    // }
+
     console.log('inside displayData() with: ');
     console.log(drinkData, mealData);
     document.querySelector('.mainDrinkImg').src = drinkData.drinks[0].strDrinkThumb;
@@ -73,11 +90,13 @@ function displayData(drinkData, mealData) {
     const foodName = mealData.meals[0].strMeal;
     const foodNameElement = document.createElement('h2');
     foodNameElement.innerText = foodName;
+    foodNameElement.id = "foodName";
     leftParent.appendChild(foodNameElement);
     document.querySelector('.topLeft').style['flex-direction'] = 'column';
 
     const drinkName = drinkData.drinks[0].strDrink;
     const drinkNameElement = document.createElement('h2');
+    drinkNameElement.id = "drinkName";
     document.querySelector('.fa-utensils').style.transform = "rotate(0deg)";
     drinkNameElement.innerText = drinkName;
     rightParent.appendChild(drinkNameElement);
@@ -134,7 +153,7 @@ function displayData(drinkData, mealData) {
     const allMealInstructions = mealData.meals[0].strInstructions.split('. ');
     console.log(allDrinkInstructions);
     console.log(allMealInstructions);
-   
+
     const drinkInstrUL = document.querySelector('.drinkInstructionSet');
     const mealInstrUL = document.querySelector('.mealInstructionSet');
     if (allDrinkInstructions) {
@@ -151,13 +170,35 @@ function displayData(drinkData, mealData) {
             let tempLI2 = document.createElement('li');
             tempLI2.innerText = allMealInstructions[i];
             mealInstrUL.appendChild(tempLI2);
-        }   
+        }
     }
     console.log(mealIngredients);
     console.log(drinkIngredients);
 
 }
+function clear() {
+    //window.onload.clear();
+    document.getElementById("foodName").remove();
+    document.getElementById("drinkName").remove();
+    let allLI = document.querySelectorAll("li");
+    let allUL = document.querySelectorAll("ul");
 
+    //var e = document.querySelector("ul");
+
+        //e.firstElementChild can be used.
+        // var child = e.lastElementChild; 
+        // while (child) {
+        //     e.removeChild(child);
+        //     child = e.lastElementChild;
+        // }
+    allUL.forEach(ul => {
+        let child = ul.lastElementChild;
+        while (child) {
+            ul.removeChild(child);
+            child = ul.lastElementChild;
+        }
+    });
+}
 function timer(ms) {
     console.log("Timer activated")
     return new Promise(res => setTimeout(res, ms));
